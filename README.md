@@ -1,16 +1,18 @@
 # Affinity PSD Guard
 
-Affinity PSD Guard is an unofficial Windows 11 tool for PSD files that show shifted layers when opened directly in Affinity v3.
+Affinity PSD Guard is an unofficial Windows 11 tool for PSD files whose Photoshop smart object layers are imported incorrectly in Affinity v3.
 
-It analyzes PSD layer metadata and can generate a new `*.affinity-v3-safe.psd` file by removing Photoshop placed/smart object metadata blocks while preserving visible layer pixel/channel data.
+In the tested case, Affinity v3 still imported PSD smart object layers at the wrong scale even when **Import PSD smart objects where possible** was enabled. The affected smart object layer pixels appeared scaled down / shifted after opening the PSD directly.
+
+This tool analyzes PSD layer metadata and can generate a new `*.affinity-v3-safe.psd` file by removing Photoshop placed/smart object metadata blocks while preserving visible layer pixel/channel data.
 
 This project is unofficial and is not affiliated with, endorsed by, or sponsored by Serif, Canva, Adobe, or any related trademark holders.
 
 ## What It Does
 
 - Reads PSD layer records directly.
-- Reports common Affinity v3 layer-shift risks.
-- Removes smart object / placed layer metadata blocks known to trigger this issue in tested files.
+- Reports smart object / placed layer metadata that may be misinterpreted by Affinity v3.
+- Removes smart object / placed layer metadata blocks known to trigger wrong-scale imports in tested files.
 - Keeps the original PSD untouched.
 - Opens the generated safe PSD in Affinity v3 when Affinity is found.
 
