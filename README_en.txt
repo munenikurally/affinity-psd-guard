@@ -2,8 +2,10 @@ Affinity PSD Guard for Windows 11
 
 Overview
 
-When a Photoshop PSD file is opened directly in Affinity v3, some layers may appear shifted.
+When a Photoshop PSD file is opened directly in Affinity v3, some smart object layers may be imported at the wrong scale or shifted position.
 This application is a Windows 11 tool designed to avoid that problem.
+
+In the tested case, Affinity v3 did not import the PSD smart object correctly even when "Import PSD smart objects where possible" was enabled.
 
 This is not a plug-in that replaces Affinity's built-in PSD importer.
 Affinity does not provide a public plug-in API for replacing the PSD importer.
@@ -47,7 +49,7 @@ Sanitize PSD
 Sanitize PSD converts the PSD without launching Affinity Photo 2.
 
 PSD layers can contain Photoshop smart object or placed-layer metadata in addition to visible pixel data.
-Affinity v3 may interpret that metadata differently and shift layer positions.
+Affinity v3 may interpret that metadata differently and import the smart object at the wrong scale or position.
 
 This app preserves the visible layer pixel/channel data and removes only the smart object metadata blocks that are known to cause problems in this case.
 
